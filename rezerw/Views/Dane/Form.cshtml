@@ -1,0 +1,16 @@
+﻿@model rezerw.Models.Dane
+
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post))
+{
+    @Html.ValidationSummary(false,"", new { @class = "text-danger" })
+    <p>Imię: @Html.TextBoxFor(x => x.Imie)</p>
+    <p>Nazwisko: @Html.TextBoxFor(x => x.Nazwisko)</p>
+    <p>E-mail: @Html.TextBoxFor(x => x.Email)</p>
+    <p>Wprowadź hasło: @Html.TextBoxFor(x => x.Haslo,new { type = "password" })</p>
+    <p>Powtórz hasło: @Html.TextBoxFor(x => x.PowtorzHaslo,new { type = "password" })</p>
+    <p>Numer telefonu: @Html.TextBoxFor(x => x.Telefon)</p>
+    <p>Wiek: @Html.TextBoxFor(x => x.Wiek)</p>
+    <p>Miasto: @Html.DropDownListFor(x => x.Miasto, new SelectList(Enum.GetValues(typeof(Miasta))))</p>
+    <input type="submit" value="Zarejestruj" />
+    <input type="reset" value="Wyczyść" />
+}
